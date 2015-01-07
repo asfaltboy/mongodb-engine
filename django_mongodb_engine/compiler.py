@@ -443,9 +443,6 @@ class SQLUpdateCompiler(NonrelUpdateCompiler, SQLCompiler):
         info = collection.update(criteria, update_spec, multi=multi, **options)
         if info is not None:
             return info.get('n')
-        update_flags = self.connection.operation_flags['update']
-        if 'safe' in update_flags and update_flags['safe']:
-            return None
         return 1
 
 
