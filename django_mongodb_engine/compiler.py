@@ -387,7 +387,7 @@ class SQLInsertCompiler(NonrelInsertCompiler, SQLCompiler):
         collection = self.get_collection()
         options = self.connection.operation_flags.get('save', {})
 
-	if len(docs) > 1:
+        if len(docs) > 1:
             collection.insert(docs, **options)
         else:
             if return_id:
