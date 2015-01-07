@@ -354,6 +354,11 @@ class BasicQueryTests(TestCase):
             [{'title': u'footitle', 'content': u'foocontent'},
              {'title': u'footitle2', 'content': u'foocontent2'}])
 
+    def test_bulk_create(self):
+        blogs = [Blog(title='blog-%d' % i) for i in range(3)]
+        Blog.objects.bulk_create(blogs)
+        self.assertEqual(Blog.objects.count(), 3)
+
 
 class UpdateTests(TestCase):
 
