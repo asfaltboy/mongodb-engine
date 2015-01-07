@@ -443,7 +443,7 @@ class SQLUpdateCompiler(NonrelUpdateCompiler, SQLCompiler):
         info = collection.update(criteria, update_spec, multi=multi, **options)
         if info is not None:
             return info.get('n')
-        return 1
+        return 0
 
 
 class SQLDeleteCompiler(NonrelDeleteCompiler, SQLCompiler):
